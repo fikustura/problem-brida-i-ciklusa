@@ -70,7 +70,7 @@ bool Graph::belongsToGraph( int v, int w )
     return false;
 }
 
-// Funkcija koja vraca true ako dani brid pripada ciklusu
+// Funkcija koja vraca true ako dani brid pripada ciklusu, inace vraca false
 bool Graph::belongsToCyle( int v, int w )
 {
     // Provjera postoji li {v, w} kao brid u danom grafu (osiguravamo da input bude korektan)
