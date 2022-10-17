@@ -9,7 +9,7 @@ Dostupna je i _PowerPoint_ prezentacija rješenja.
 - U trećoj datoteci (_main.cpp_) iz tekstualne datoteke _data.txt_ učitava se graf, odnosno broj njegovih vrhova te bridovi (dvočlani skupovi vrhova).
 - Alternativno, graf je moguće, naravno, učitati i manje elegantnim putem, direktno u samom _main_-u. Taj dio sam zakomentirao.
 - Program je moguće dobiti zajedničkim _kompajliranjem_ i _linkanjem_ datoteka _main.cpp_ i _graph.cpp_.
-- Brid grafa za koji želimo utvrditi pripada li ciklusu ili ne učitavamo putem komandne linije.
+- Brid grafa za koji želimo utvrditi pripada li ciklusu ili ne učitavamo putem komandne linije, prilikom pokretanja programa.
 
 #### UPUTE:
 - Opis testnih podataka:
