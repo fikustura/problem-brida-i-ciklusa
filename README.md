@@ -11,8 +11,7 @@ Dostupna je i _PowerPoint_ prezentacija rješenja.
 - Program je moguće dobiti zajedničkim _kompajliranjem_ i _linkanjem_ datoteka _main.cpp_ i _graph.cpp_.
 - Brid grafa za koji želimo utvrditi pripada li ciklusu ili ne učitavamo putem komandne linije, prilikom pokretanja programa.
 
-#### UPUTE:
-- Opis testnih podataka:
+#### UPUTE (opis testnih podataka):
 - Koristi se tekstualna datoteka _data.txt_.
 - U prvom retku datoteke nalazi se **samo** _integer_ _V_ koji predstavlja broj vrhova grafa. Vrhovi grafa indeksirani su brojevima _0, ... , V-1_.
 - U svakom idućem retku datoteke nalaze se samo dva _integera_ **strogo manja od _V_**, međusobno odvojena razmakom. Oni predstavljaju brid koji dodajemo grafu.
