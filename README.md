@@ -1,18 +1,76 @@
-Problem glasi: **Za zadani povezani neusmjereni graf i njegov brid _e_ odrediti pripada li _e_ ciklusu ili ne. Složenost, uz standardne oznake, najviše _O(m + n)_.** (_m_ je broj bridova, a _n_ broj vrhova grafa)
+# Graph Cycle Detection
 
-_C++_ program koji predstavljaja rješenje problema realiziran je kroz tri detaljno komentirane datoteke: _graph.h_ (sučelje), _graph.cpp_ (implementacija sučelja) i _main.cpp_ (klijentski program).
+This repository contains a C++ implementation for solving the following problem:
 
-Dostupna je i _PowerPoint_ prezentacija rješenja.
+**Problem Statement:**
+Given a connected undirected graph and a specific edge \(e\), determine whether \(e\) is part of a cycle. The solution has a time complexity of \(O(m + n)\), where \(m\) is the number of edges and \(n\) is the number of vertices in the graph.
 
-#### NAPOMENE:
-- U prve dvije datoteke (_graph.h_ i _graph.cpp_) definiram i implementiram strukturu koju koristimo, a to je **graf**.
-- U trećoj datoteci (_main.cpp_) iz tekstualne datoteke _data.txt_ učitava se graf, odnosno broj njegovih vrhova te bridovi (dvočlani skupovi vrhova).
-- Alternativno, graf je moguće, naravno, učitati i manje elegantnim putem, direktno u samom _main_-u. Taj dio sam zakomentirao.
-- Program je moguće dobiti zajedničkim _kompajliranjem_ i _linkanjem_ datoteka _main.cpp_ i _graph.cpp_.
-- Brid grafa za koji želimo utvrditi pripada li ciklusu ili ne učitavamo putem komandne linije, prilikom pokretanja programa.
+## Approach
+The solution involves the following steps:
 
-#### UPUTE (opis testnih podataka):
-- Koristi se tekstualna datoteka _data.txt_.
-- U prvom retku datoteke nalazi se **samo** _integer_ _V_ koji predstavlja broj vrhova grafa. Vrhovi grafa indeksirani su brojevima _0, ... , V-1_.
-- U svakom idućem retku datoteke nalaze se samo dva _integera_ **strogo manja od _V_**, međusobno odvojena razmakom. Oni predstavljaju brid koji dodajemo grafu.
-- Korisnik treba paziti da u tekstualnoj datoteci ne unese neki brid više od jednom (ovome je, naravno, moguće doskočiti u implementaciji, no time se nisam zamarao).
+1. **Remove the Edge**:
+   Remove the given edge \(e\) (connecting vertices \(v\) and \(w\)) from the graph.
+
+2. **Breadth-First Search (BFS):**
+   Start BFS from one of the vertices of the edge (e.g., \(v\)). Check if there exists a path to the other vertex \(w\). If such a path exists, then the edge \(e\) is part of a cycle; otherwise, it is not.
+
+   BFS is implemented using a queue to store open vertices and a visited array to mark visited vertices. The time complexity is achieved as described in the book *Introduction to Algorithms* by Cormen et al.
+
+## Files
+The implementation is split into three files for clarity and modularity:
+
+- **`graph.h`**: Interface for the graph data structure.
+- **`graph.cpp`**: Implementation of the graph interface.
+- **`main.cpp`**: Client program for loading a graph, parsing input, and determining if an edge is part of a cycle.
+
+Additionally, a PowerPoint presentation explaining the solution is included.
+
+## Input Format
+Graphs are read from a `data.txt` file with the following format:
+
+- The first line contains an integer \(V\), representing the number of vertices in the graph. Vertices are indexed from 0 to \(V-1\).
+- Each subsequent line contains two integers, separated by a space, representing an edge between two vertices.
+
+### Example `data.txt` File
+```
+5
+0 1
+1 2
+2 3
+3 4
+4 0
+```
+
+## Compilation
+Compile the program using the following command:
+
+```bash
+g++ -o cycle_detection main.cpp graph.cpp
+```
+
+## Running the Program
+Provide the edge to be checked as a command-line argument:
+
+```bash
+./cycle_detection edge_start edge_end
+```
+
+### Example
+To check if the edge `(0, 1)` is part of a cycle:
+
+```bash
+./cycle_detection 0 1
+```
+
+## Notes
+- The file `data.txt` must not contain duplicate edges. This limitation is not explicitly handled in the current implementation.
+- An alternative, direct way of initializing the graph (via hardcoding) is available in `main.cpp`, but it is commented out for simplicity.
+
+## Testing
+To test the program:
+1. Prepare a `data.txt` file in the specified format.
+2. Compile and run the program with various edge inputs to observe the results.
+
+---
+
+Feel free to explore the implementation and provide feedback or suggestions.
